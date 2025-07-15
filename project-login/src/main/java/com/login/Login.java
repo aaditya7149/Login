@@ -6,6 +6,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.image.Image;
@@ -27,7 +28,7 @@ public class Login extends Application {
         ImageView backgroundView = new ImageView(backgroundImage);
         backgroundView.setFitWidth(1550);
         backgroundView.setFitHeight(870);
-        backgroundView.opacityProperty().set(0.6);
+        backgroundView.opacityProperty().set(0.5);
         StackPane root = new StackPane();
 
         
@@ -80,8 +81,10 @@ public class Login extends Application {
                         "-fx-background-radius: 20;" +
                         "-fx-border-radius: 20;" +
                         "-fx-border-color: rgba(255, 255, 255, 0.3);" +
-                        "-fx-border-width: 1.5;"
+                        "-fx-border-width: 2;"
                     );
+
+        card.setEffect(new GaussianBlur(100));
 
         // Create title
         Text title = new Text("Welcome Back");
@@ -146,6 +149,7 @@ public class Login extends Application {
                 expLogButtonsBox,
                 forgotLink,
                 signUpSection);
+
 
         return card;
     }
